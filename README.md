@@ -1,4 +1,4 @@
-# srwebsit
+# srwebsite
 
 To make use of the website you have to install and import several dependencies:
 
