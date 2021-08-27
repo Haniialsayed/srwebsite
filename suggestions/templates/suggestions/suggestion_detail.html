@@ -1,0 +1,11 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+
+{% block content %}
+<div class="suggestion-detail">
+    <div class="suggestion">
+        <br><h2>{{ suggestion.name }}</h2><br>
+        <p align="justify">{{ suggestion.description }}</p>
+    </div>
+</div>
+{% endblock %}

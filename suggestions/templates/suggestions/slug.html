@@ -1,0 +1,11 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+    {% for method in methods %}
+        <a class="btn btn-primary" href="{{ method.slug }}" style="float: right;">{{ method.slug }}</a>
+        <br>
+    {% endfor %}
+    </div>
+{% endblock %}

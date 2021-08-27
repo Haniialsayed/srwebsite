@@ -1,0 +1,25 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<div class="container" style="height: 650px;">
+    <div class="recommendations">
+        <h2>Here are the 5 recommendations we have for you:</h2>
+        <br>
+        <div class="alert alert-primary" role="alert">
+            <font size="+1">{{ post_recommendations.recommendation_1 }}</font>
+        </div>
+        <div class="alert alert-secondary" role="alert">
+            <font size="+1">{{ post_recommendations.recommendation_2 }}</font>
+        </div>
+        <div class="alert alert-warning" role="alert">
+            <font size="+1">{{ post_recommendations.recommendation_3 }}</font>
+        </div>
+        <div class="alert alert-info" role="alert">
+            <font size="+1">{{ post_recommendations.recommendation_4 }}</font>
+        </div>
+        <div class="alert alert-danger" role="alert">
+            <font size="+1">{{ post_recommendations.recommendation_5 }}</font>
+        </div>
+    </div>
+</div>
+{% endblock %}

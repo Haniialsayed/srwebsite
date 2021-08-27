@@ -1,0 +1,640 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+<br>
+    <center><h1 style="color: #000066;">Suggestions To Help Reduce Stress</h1></center>
+<br>
+    <h6>Please let us know what method of stress reduction already works for you.</h6>
+<form action="{% url 'accounts:collect_methods' %}" class="row g-3 needs-validation" enctype="multipart/form-data"
+      method="POST" novalidate>
+    {% csrf_token %}
+    <div class="cards">
+        <div class="card" id='card1' style="width: 18rem;">
+            <div class="imageDiv">
+                <img alt="..." style="transform: scale(1.0,1.35); transform-origin: 30% 0%;" class="card-img-top" src="{% static 'water.jpg' %}" width="50%">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Drink enough water</h5>
+                <p class="card-text">Staying hydrated, like getting enough sleep, directly affects your body’s cortisol
+                    levels and can reduce stress. Why? Do we want you to stay hydrate...</p>
+                <a class="btn btn-primary" href="drink-enough-water" style="float: right;">Read more</a>
+                <br>
+                <br>
+                <div class="col-md-3 sel">
+                    <label class="form-label" for="drinkEnoughWater">How effective is this method for you?</label>
+                    <select class="form-select" id="drinkEnoughWater" name="drink_enough_water">
+                        <option disabled selected value="">Rate here...</option>
+                        <option value="5">Very effective</option>
+                        <option value="4">Effective</option>
+                        <option value="3">Mildly effective</option>
+                        <option value="2">Neutral</option>
+                        <option value="1">Ineffective</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="card" id='card2' style="width: 18rem;">
+            <div class="imageDiv">
+                <img alt="..." style="transform: scale(1.0,1.1); transform-origin: 30% 0%;" class="card-img-top" src="{% static 'walk.jpg' %}" width="50%">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Take a walk</h5>
+                <p class="card-text"> According to numerous studies, your afternoon stroll might have significant
+                    stress-relieving benefits. You do not need to run for miles to enjoy the s...</p>
+                <a class="btn btn-primary" href="take-a-walk" style="float: right;">Read more</a>
+                <br>
+                <br>
+                <div class="col-md-3 sel">
+                    <label class="form-label" for="takeAWalk">How effective is this method for you?</label>
+                    <select class="form-select" id="takeAWalk" name="take_a_walk">
+                        <option disabled selected value="">Rate here...</option>
+                        <option value="5">Very effective</option>
+                        <option value="4">Effective</option>
+                        <option value="3">Mildly effective</option>
+                        <option value="2">Neutral</option>
+                        <option value="1">Ineffective</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="card" id='card3' style="width: 18rem;">
+            <div class="imageDiv">
+                <img alt="..." class="card-img-top" src="{% static 'laughter.jpg' %}" width="50%">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Laugh more!</h5>
+                <p class="card-text"> The benefits of laughter It’s true: laughter is strong medicine. It draws people
+                    together in ways that trigger healthy physical and emotional changes...</p>
+                <a class="btn btn-primary" href="laugh-more" style="float: right;">Read more</a>
+                <br>
+                <br>
+                <div class="col-md-3 sel">
+                    <label class="form-label" for="laughMore">How effective is this method for you?</label>
+                    <select class="form-select" id="laughMore" name="laugh_more">
+                        <option disabled selected value="">Rate here...</option>
+                        <option value="5">Very effective</option>
+                        <option value="4">Effective</option>
+                        <option value="3">Mildly effective</option>
+                        <option value="2">Neutral</option>
+                        <option value="1">Ineffective</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="card" id='card4' style="width: 18rem;">
+            <div class="imageDiv">
+                <img alt="..." style="transform: scale(1.0,1.1); transform-origin: 30% 0%;" class="card-img-top" src="{% static 'medition.jpg' %}" width="50%">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Do some Meditation</h5>
+                <p class="card-text">Meditation can wipe away the day's stress, bringing with it inner peace. See how
+                    you can quickly learn to practice meditation whenever you need it mos...</p>
+                <a class="btn btn-primary" href="do-some-meditation" style="float: right;">Read more</a>
+                <br>
+                <br>
+                <div class="col-md-3 sel">
+                    <label class="form-label" for="doSomeMeditation">How effective is this method for you?</label>
+                    <select class="form-select" id="doSomeMeditation" name="do_some_meditation">
+                        <option disabled selected value="">Rate here...</option>
+                        <option value="5">Very effective</option>
+                        <option value="4">Effective</option>
+                        <option value="3">Mildly effective</option>
+                        <option value="2">Neutral</option>
+                        <option value="1">Ineffective</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="card" id='card5' style="width: 18rem;">
+            <div class="imageDiv">
+                <img alt="..." style="transform: scale(1.0,0.9); transform-origin: 30% 0%;" class="card-img-top" src="{% static 'support_group_zB1M1Dy.jpg' %}" width="50%">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Get Support from Colleagues</h5>
+                <p class="card-text"> Let's be real: The only thing people love more than complaining about how busy
+                    they are is complaining about how stressed they are. But why does it fe...</p>
+                <a class="btn btn-primary" href="get-support-from-colleagues" style="float: right;">Read
+                    more</a>
+                <br>
+                <br>
+                <div class="col-md-3 sel">
+                    <label class="form-label" for="getSupportFromColleagues">How effective is this method for
+                        you?</label>
+                    <select class="form-select" id="getSupportFromColleagues" name="get_support_from_colleagues">
+                        <option disabled selected value="">Rate here...</option>
+                        <option value="5">Very effective</option>
+                        <option value="4">Effective</option>
+                        <option value="3">Mildly effective</option>
+                        <option value="2">Neutral</option>
+                        <option value="1">Ineffective</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="card" id='card6' style="width: 18rem;">
+            <div class="imageDiv">
+                <img alt="..." class="card-img-top" src="{% static 'avoid_smoking.jpg' %}" width="50%">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Avoid Smoking and Nicotine</h5>
+                <p class="card-text">Some people smoke when they feel stressed. They use smoking as a way to cope. There
+                    are many problems with using cigarettes as a way to cope with stre...</p>
+                <a class="btn btn-primary" href="avoid-smoking-and-nicotine" style="float: right;">Read
+                    more</a>
+                <br>
+                <br>
+                <div class="col-md-3 sel">
+                    <label class="form-label" for="avoidSmokingAndNicotine">How effective is this method for
+                        you?</label>
+                    <select class="form-select" id="avoidSmokingAndNicotine" name="avoid_smoking_and_nicotine">
+                        <option disabled selected value="">Rate here...</option>
+                        <option value="5">Very effective</option>
+                        <option value="4">Effective</option>
+                        <option value="3">Mildly effective</option>
+                        <option value="2">Neutral</option>
+                        <option value="1">Ineffective</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="card" id='card7' style="width: 18rem;">
+            <div class="imageDiv">
+                <img alt="..." class="card-img-top" src="{% static 'procrastination.jpg' %}" width="50%">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Avoid Procrastinating</h5>
+                <p class="card-text"> Chances are, there are at least one or two projects on your plate that have taken
+                    up permanent residence on your to-do list. You know you need to get ...</p>
+                <a class="btn btn-primary" href="avoid-procrastinating" style="float: right;">Read more</a>
+                <br>
+                <br>
+                <div class="col-md-3 sel">
+                    <label class="form-label" for="avoidProcrastinating">How effective is this method for you?</label>
+                    <select class="form-select" id="avoidProcrastinating" name="avoid_procrastinating">
+                        <option disabled selected value="">Rate here...</option>
+                        <option value="5">Very effective</option>
+                        <option value="4">Effective</option>
+                        <option value="3">Mildly effective</option>
+                        <option value="2">Neutral</option>
+                        <option value="1">Ineffective</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="card" id='card8' style="width: 18rem;">
+            <div class="imageDiv">
+                <img alt="..." style="transform: scale(1.0,1.2); transform-origin: 30% 0%;" class="card-img-top" src="{% static 'deep_breathing.jpg' %}" width="50%">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"> Practice Deep Breathing</h5>
+                <p class="card-text"> Stress Management: Breathing Exercises for Relaxation Have you ever noticed how
+                    you breathe when you feel relaxed? The next time you are relaxed, tak...</p>
+                <a class="btn btn-primary" href="practice-deep-breathing" style="float: right;">Read
+                    more</a>
+                <br>
+                <br>
+                <div class="col-md-3 sel">
+                    <label class="form-label" for="practiceDeepBreathing">How effective is this method for you?</label>
+                    <select class="form-select" id="practiceDeepBreathing" name="practice_deep_breathing">
+                        <option disabled selected value="">Rate here...</option>
+                        <option value="5">Very effective</option>
+                        <option value="4">Effective</option>
+                        <option value="3">Mildly effective</option>
+                        <option value="2">Neutral</option>
+                        <option value="1">Ineffective</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="card" id='card9' style="width: 18rem;">
+            <div class="imageDiv">
+                <img alt="..." style="transform: scale(1.0,1.1); transform-origin: 30% 0%;" class="card-img-top" src="{% static 'yoga.jpg' %}" width="50%">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Do some Yoga</h5>
+                <p class="card-text"> Yoga has long been known to be a great antidote to stress. Yoga combines many
+                    popular stress-reducing techniques, including exercise and learning to c...</p>
+                <a class="btn btn-primary" href="do-some-yoga" style="float: right;">Read more</a>
+                <br>
+                <br>
+                <div class="col-md-3 sel">
+                    <label class="form-label" for="doSomeYoga">How effective is this method for you?</label>
+                    <select class="form-select" id="doSomeYoga" name="do_some_yoga">
+                        <option disabled selected value="">Rate here...</option>
+                        <option value="5">Very effective</option>
+                        <option value="4">Effective</option>
+                        <option value="3">Mildly effective</option>
+                        <option value="2">Neutral</option>
+                        <option value="1">Ineffective</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="card" id='card10' style="width: 18rem;">
+            <div class="imageDiv">
+                <img alt="..." style="transform: scale(1.0,0.9); transform-origin: 30% 0%;" class="card-img-top" src="{% static 'support_group.jpg' %}" width="50%">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Engage your social support group</h5>
+                <p class="card-text">A strong social support network can be critical to help you through the stress of
+                    tough times, whether you've had a bad day at work or a year filled w...</p>
+                <a class="btn btn-primary" href="engage-your-social-support-group" style="float: right;">Read
+                    more</a>
+                <br>
+                <br>
+                <div class="col-md-3 sel">
+                    <label class="form-label" for="engageYourSocialSupportGroup">How effective is this method for
+                        you?</label>
+                    <select class="form-select" id="engageYourSocialSupportGroup"
+                            name="engage_your_social_support_group">
+                        <option disabled selected value="">Rate here...</option>
+                        <option value="5">Very effective</option>
+                        <option value="4">Effective</option>
+                        <option value="3">Mildly effective</option>
+                        <option value="2">Neutral</option>
+                        <option value="1">Ineffective</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="card" id='card11' style="width: 18rem;">
+            <div class="imageDiv">
+                <img alt="..." style="transform: scale(1.0,1.3); transform-origin: 30% 0%;" class="card-img-top" src="{% static 'music.jpg' %}" width="50%">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Listen to soothing music</h5>
+                <p class="card-text">Listening to music is powerful. It can set the mood in certain situations, bring
+                    back nostalgic memories, and in some cases, even help relieve stress....</p>
+                <a class="btn btn-primary" href="listen-to-soothing-music" style="float: right;">Read
+                    more</a>
+                <br>
+                <br>
+                <div class="col-md-3 sel">
+                    <label class="form-label" for="listenToSoothingMusic">How effective is this method for you?</label>
+                    <select class="form-select" id="listenToSoothingMusic" name="listen_to_soothing_music">
+                        <option disabled selected value="">Rate here...</option>
+                        <option value="5">Very effective</option>
+                        <option value="4">Effective</option>
+                        <option value="3">Mildly effective</option>
+                        <option value="2">Neutral</option>
+                        <option value="1">Ineffective</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="card" id='card12' style="width: 18rem;">
+            <div class="imageDiv">
+                <img alt="..." style="transform: scale(1.0,1.3); transform-origin: 30% 0%;" class="card-img-top" src="{% static 'yoghurt.jpg' %}" width="50%">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Take some yoghurt</h5>
+                <p class="card-text">Eating probiotic-rich yogurt twice a day for a month could help relieve anxiety and
+                    stress by reducing activity in the brain's emotional region, a sma...</p>
+                <a class="btn btn-primary" href="take-some-yoghurt" style="float: right;">Read more</a>
+                <br>
+                <br>
+                <div class="col-md-3 sel">
+                    <label class="form-label" for="takeSomeYoghurt">How effective is this method for you?</label>
+                    <select class="form-select" id="takeSomeYoghurt" name="take_some_yoghurt">
+                        <option disabled selected value="">Rate here...</option>
+                        <option value="5">Very effective</option>
+                        <option value="4">Effective</option>
+                        <option value="3">Mildly effective</option>
+                        <option value="2">Neutral</option>
+                        <option value="1">Ineffective</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="card" id='card13' style="width: 18rem;">
+            <div class="imageDiv">
+                <img alt="..." class="card-img-top" src="{% static 'eggs.jpg' %}" width="50%">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Eat enough eggs</h5>
+                <p class="card-text">Yes. When it comes to helping meet your daily nutritional requirements, eggs are
+                    pretty tough to beat. Eggs provide the highest-quality protein – wh...</p>
+                <a class="btn btn-primary" href="eat-enough-eggs" style="float: right;">Read more</a>
+                <br>
+                <br>
+                <div class="col-md-3 sel">
+                    <label class="form-label" for="eatEnoughEggs">How effective is this method for you?</label>
+                    <select class="form-select" id="eatEnoughEggs" name="eat_enough_eggs">
+                        <option disabled selected value="">Rate here...</option>
+                        <option value="5">Very effective</option>
+                        <option value="4">Effective</option>
+                        <option value="3">Mildly effective</option>
+                        <option value="2">Neutral</option>
+                        <option value="1">Ineffective</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="card" id='card14' style="width: 18rem;">
+            <div class="imageDiv">
+                <img alt="..." class="card-img-top" src="{% static 'green_tea.jpg' %}" width="50%">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Take Green Tea Supplements</h5>
+                <p class="card-text">Stress, anxiety, and other issues that might arise from stress, like high blood
+                    pressure, can disrupt life in profound ways. The good news is that th...</p>
+                <a class="btn btn-primary" href="take-green-tea-supplements" style="float: right;">Read
+                    more</a>
+                <br>
+                <br>
+                <div class="col-md-3 sel">
+                    <label class="form-label" for="takeGreenTeaSupplements">How effective is this method for
+                        you?</label>
+                    <select class="form-select" id="takeGreenTeaSupplements" name="take_green_tea_supplements">
+                        <option disabled selected value="">Rate here...</option>
+                        <option value="5">Very effective</option>
+                        <option value="4">Effective</option>
+                        <option value="3">Mildly effective</option>
+                        <option value="2">Neutral</option>
+                        <option value="1">Ineffective</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="card" id='card15' style="width: 18rem;">
+            <div class="imageDiv">
+                <img alt="..." style="transform: scale(1.0,1.2); transform-origin: 30% 0%;" class="card-img-top" src="{% static 'turkey.jpg' %}" width="50%">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Eat some Turkey</h5>
+                <p class="card-text">I’ve talked about food that reduces stress before, but I’m looking forward to this
+                    installment of it because, in this one, I get to talk about one of ...</p>
+                <a class="btn btn-primary" href="eat-some-turkey" style="float: right;">Read more</a>
+                <br>
+                <br>
+                <div class="col-md-3 sel">
+                    <label class="form-label" for="eatSomeTurkey">How effective is this method for you?</label>
+                    <select class="form-select" id="eatSomeTurkey" name="eat_some_turkey">
+                        <option disabled selected value="">Rate here...</option>
+                        <option value="5">Very effective</option>
+                        <option value="4">Effective</option>
+                        <option value="3">Mildly effective</option>
+                        <option value="2">Neutral</option>
+                        <option value="1">Ineffective</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="card" id='card16' style="width: 18rem;">
+            <div class="imageDiv">
+                <img alt="..." class="card-img-top" src="{% static 'oatmeal.jpg' %}" width="50%">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Take some Oatmeal</h5>
+                <p class="card-text">It's tempting to reach for a cheeseburger when stressed but go green at lunch
+                    instead. "Green leafy vegetables like spinach contain folate, which prod...</p>
+                <a class="btn btn-primary" href="take-some-oatmeal" style="float: right;">Read more</a>
+                <br>
+                <br>
+                <div class="col-md-3 sel">
+                    <label class="form-label" for="takeSomeOatmeal">How effective is this method for you?</label>
+                    <select class="form-select" id="takeSomeOatmeal" name="take_some_oatmeal">
+                        <option disabled selected value="">Rate here...</option>
+                        <option value="5">Very effective</option>
+                        <option value="4">Effective</option>
+                        <option value="3">Mildly effective</option>
+                        <option value="2">Neutral</option>
+                        <option value="1">Ineffective</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="card" id='card17' style="width: 18rem;">
+            <div class="imageDiv">
+                <img alt="..." style="transform: scale(1.0,1.1); transform-origin: 30% 0%;" class="card-img-top" src="{% static 'vegetables.jpg' %}" width="50%">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Eat more vegetables</h5>
+                <p class="card-text">It's tempting to reach for a cheeseburger when stressed but go green at lunch
+                    instead. "Green leafy vegetables like spinach contain folate, which prod...</p>
+                <a class="btn btn-primary" href="eat-more-vegetables" style="float: right;">Read more</a>
+                <br>
+                <br>
+                <div class="col-md-3 sel">
+                    <label class="form-label" for="eatMoreVegetables">How effective is this method for you?</label>
+                    <select class="form-select" id="eatMoreVegetables" name="eat_more_vegetables">
+                        <option disabled selected value="">Rate here...</option>
+                        <option value="5">Very effective</option>
+                        <option value="4">Effective</option>
+                        <option value="3">Mildly effective</option>
+                        <option value="2">Neutral</option>
+                        <option value="1">Ineffective</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="card" id='card18' style="width: 18rem;">
+            <div class="imageDiv">
+                <img alt="..." style="transform: scale(1.0,1.7); transform-origin: 30% 0%;" class="card-img-top" src="{% static 'oranges.jpg' %}" width="50%">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Eat some Citrus Fruits like Oranges</h5>
+                <p class="card-text">Oranges don’t just taste refreshing but are also good for you. They are rich in
+                    vitamins, phytonutrients and offer many health benefits. Thanks to v...</p>
+                <a class="btn btn-primary" href="eat-some-citrus-fruits-like-oranges" style="float: right;">Read
+                    more</a>
+                <br>
+                <br>
+                <div class="col-md-3 sel">
+                    <label class="form-label" for="eatSomeCitrusFruitsLikeOranges">How effective is this method for
+                        you?</label>
+                    <select class="form-select" id="eatSomeCitrusFruitsLikeOranges"
+                            name="eat_some_citrus_fruits_like_oranges">
+                        <option disabled selected value="">Rate here...</option>
+                        <option value="5">Very effective</option>
+                        <option value="4">Effective</option>
+                        <option value="3">Mildly effective</option>
+                        <option value="2">Neutral</option>
+                        <option value="1">Ineffective</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="card" id='card19' style="width: 18rem;">
+            <div class="imageDiv">
+                <img alt="..." style="transform: scale(1.0,0.8); transform-origin: 30% 0%;" class="card-img-top" src="{% static 'pray_more.jpg' %}" width="50%">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Pray more</h5>
+                <p class="card-text">The American Psychological Association’s newest “Stress in America” survey of 3,440
+                    adults shows the public’s overall stress level remains the same as...</p>
+                <a class="btn btn-primary" href="pray-more" style="float: right;">Read more</a>
+                <br>
+                <br>
+                <div class="col-md-3 sel">
+                    <label class="form-label" for="prayMore">How effective is this method for you?</label>
+                    <select class="form-select" id="prayMore" name="pray_more">
+                        <option disabled selected value="">Rate here...</option>
+                        <option value="5">Very effective</option>
+                        <option value="4">Effective</option>
+                        <option value="3">Mildly effective</option>
+                        <option value="2">Neutral</option>
+                        <option value="1">Ineffective</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="card" id='card20' style="width: 18rem;">
+            <div class="imageDiv">
+                <img alt="..." style="transform: scale(1.0,1.05); transform-origin: 30% 0%;" class="card-img-top" src="{% static 'vacation.jpeg' %}" width="50%">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Take a vacation</h5>
+                <p class="card-text">Research shows that Americans work more than people in any country in the
+                    industrialized world. We take less vacation, work longer days, and retire la...</p>
+                <a class="btn btn-primary" href="take-a-vacation" style="float: right;">Read more</a>
+                <br>
+                <br>
+                <div class="col-md-3 sel">
+                    <label class="form-label" for="takeAVacation">How effective is this method for you?</label>
+                    <select class="form-select" id="takeAVacation" name="take_a_vacation">
+                        <option disabled selected value="">Rate here...</option>
+                        <option value="5">Very effective</option>
+                        <option value="4">Effective</option>
+                        <option value="3">Mildly effective</option>
+                        <option value="2">Neutral</option>
+                        <option value="1">Ineffective</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="card" id='card21' style="width: 18rem;">
+            <div class="imageDiv">
+                <img alt="..." style="transform: scale(1.0,1.3); transform-origin: 30% 0%;" class="card-img-top" src="{% static 'sleep_well.jpg' %}" width="50%">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Sleep well</h5>
+                <p class="card-text">Stress often influences sleep which has a direct impact on how we live our lives.
+                    And not getting enough sleep can even make your anxiety worse. What...</p>
+                <a class="btn btn-primary" href="sleep-well" style="float: right;">Read more</a>
+                <br>
+                <br>
+                <div class="col-md-3 sel">
+                    <label class="form-label" for="sleepWell">How effective is this method for you?</label>
+                    <select class="form-select" id="sleepWell" name="sleep_well">
+                        <option disabled selected value="">Rate here...</option>
+                        <option value="5">Very effective</option>
+                        <option value="4">Effective</option>
+                        <option value="3">Mildly effective</option>
+                        <option value="2">Neutral</option>
+                        <option value="1">Ineffective</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="card" id='card22' style="width: 18rem;">
+            <div class="imageDiv">
+                <img alt="..." class="card-img-top" src="{% static 'reduce_caffeine_intake.png' %}" width="50%">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Reduce Your Caffeine Intake</h5>
+                <p class="card-text">People may joke about needing their coffee to function in the morning, but caffeine
+                    is a drug in all seriousness. It's most often consumed in coffee, ...</p>
+                <a class="btn btn-primary" href="reduce-your-caffeine-intake" style="float: right;">Read
+                    more</a>
+                <br>
+                <br>
+                <div class="col-md-3 sel">
+                    <label class="form-label" for="reduceYourCaffeineIntake">How effective is this method for
+                        you?</label>
+                    <select class="form-select" id="reduceYourCaffeineIntake" name="reduce_your_caffeine_intake">
+                        <option disabled selected value="">Rate here...</option>
+                        <option value="5">Very effective</option>
+                        <option value="4">Effective</option>
+                        <option value="3">Mildly effective</option>
+                        <option value="2">Neutral</option>
+                        <option value="1">Ineffective</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="card" id='card23' style="width: 18rem;">
+            <div class="imageDiv">
+                <img alt="..." style="transform: scale(1.0,1.1); transform-origin: 30% 0%;" class="card-img-top" src="{% static 'avoid_overworking_yourself.jpg' %}" width="50%">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Avoid Overworking yourself</h5>
+                <p class="card-text">A recent New York Times article shared unsettling research about how your health is
+                    affected by your work. A Harvard Medical School study found tha...</p>
+                <a class="btn btn-primary" href="avoid-overworking-yourself" style="float: right;">Read
+                    more</a>
+                <br>
+                <br>
+                <div class="col-md-3 sel">
+                    <label class="form-label" for="avoidOverWorkingYourself">How effective is this method for
+                        you?</label>
+                    <select class="form-select" id="avoidOverWorkingYourself" name="avoid_overworking_yourself">
+                        <option disabled selected value="">Rate here...</option>
+                        <option value="5">Very effective</option>
+                        <option value="4">Effective</option>
+                        <option value="3">Mildly effective</option>
+                        <option value="2">Neutral</option>
+                        <option value="1">Ineffective</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="card" id='card24' style="width: 18rem;">
+            <div class="imageDiv">
+                <img alt="..." class="card-img-top" src="{% static 'avoid_negativity.jpg' %}" width="50%">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Avoid Negativity</h5>
+                <p class="card-text">Indeed effective stress management involves a mix of habits and thought patterns
+                    that minimize the stress you encounter in life and increase your abil...</p>
+                <a class="btn btn-primary" href="avoid-negativity" style="float: right;">Read more</a>
+                <br>
+                <br>
+                <div class="col-md-3 sel">
+                    <label class="form-label" for="avoidNegativity">How effective is this method for you?</label>
+                    <select class="form-select" id="avoidNegativity" name="avoid_negativity">
+                        <option disabled selected value="">Rate here...</option>
+                        <option value="5">Very effective</option>
+                        <option value="4">Effective</option>
+                        <option value="3">Mildly effective</option>
+                        <option value="2">Neutral</option>
+                        <option value="1">Ineffective</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Recommend</button>
+        </div>
+    </div>
+</form>
+    <div class="space-container" style="height: 70px"></div>
+</div>
+</div>
+{% endblock %}

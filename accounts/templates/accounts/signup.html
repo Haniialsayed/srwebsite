@@ -1,0 +1,33 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <body style="background-color:#E8E8E8;">
+        <div class="center" style="height: 1400px">
+        <div class="container signup">
+            <div class="text">
+                Create an Emness Account
+                <div class="small-text">
+                    Account for everything Emness
+                </div>
+            </div>
+            <form method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    <p>{{ field.label_tag }}
+                    <br>
+                    {{ field }}
+                    <br>
+                    {% if field.help_text %}
+                        <small style="color: grey">{{ field.help_text }}</small>
+                    {% endif %}
+                    {% for error in field.errors %}
+                        <p style="color: red">{{ error }}</p>
+                    {% endfor %}
+                    </p>
+                {% endfor %}
+                <center><button class="btn btn-primary login-button" type="submit">Sign up</button></center>
+            </form>
+        </div>
+        </div>
+    </body>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+
+{% block content %}
+<body>
+    <div id="home-container">
+        <div class="container about">
+            <h1 style="color: blue;">About us</h1>
+            <br>
+            <h6>
+                Emness is a recommendation system that aims to increase the general healthcare in the workplace. The recommendation system will help employees who suffer from stress in the workplace to reduce stress easily. This platform proposes the most ideal solutions in order to improve employee productivity and improve the work environment.
+            </h6>
+            <br>
+            <h6>
+                Emness is a recommendation system based on an opinion poll and vote from many individuals in diverse work environments. It uses this knowledge pool to provide advise and recommendations to the employee to improve their well-being by providing powerful suggestions that would help reduce the stress employees are exposed to in the workplace.
+            </h6>
+            <br>
+            <br>
+            <h1 style="color: blue;">
+               How to use Emness
+            </h1>
+            <br>
+            <h6>
+                Step 1:
+                    Sign up to become a member of the Emness
+            </h6>
+            <h6>
+                Step 2:
+                    Click on the "How are you feeling button", select an option and click register
+            </h6>
+            <h6>
+                Step 3:
+                    <a href="{% url 'accounts:survey' %}">Take the Emness survey here</a>
+            </h6>
+            <h6>
+                Step 4:
+                    Navigate to the recommendations page
+            </h6>
+            <h6>
+                Step 5:
+                    Go through the different stress reduction methods and rate them as it best suits you daily work routine
+            </h6>
+            <h6>
+                Step 6:
+                    Click the recommend button at the bottom of the page
+            </h6>
+            <h6>
+                Step 7:
+                    Read through the recommendations and implement them in your daily routine
+            </h6>
+        </div>
+    </div>
+</body>
+{% endblock %}
